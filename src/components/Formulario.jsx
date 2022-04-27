@@ -3,6 +3,10 @@ import { Formik, Form, Field } from 'formik';
 
 const Formulario = () => {
 
+    const handleSubmit = (values) => {
+        console.log(values)
+    }
+
     return (
         <div className='bg-white mt-10 px-5 py-10 rounded-md shadow-md md:w-3/4 mx-auto'>
             
@@ -15,6 +19,9 @@ const Formulario = () => {
                     email: '',
                     telefono: '',
                     notas: ''
+                }}
+                onSubmit = { (values) => {
+                    handleSubmit(values)
                 }}
             >
                 {() => (
