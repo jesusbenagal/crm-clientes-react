@@ -1,7 +1,30 @@
 import React from 'react'
 import { Formik, Form, Field } from 'formik';
+import * as Yup from 'yup';
+import Alerta from './Alerta';
 
 const Formulario = () => {
+
+    const nuevoClienteSchema = Yup.object().shape({
+
+        nombre: Yup.string()
+                    .min(3, 'El nombre es muy corto')
+                    .max(40, 'El nombre es muy largo')
+                    .required('El nombre del cliente es obligatorio'),
+
+        empresa: Yup.string()
+                    .required('El nombre de la empresa es obligatorio'),
+
+        email: Yup.string()
+                    .email('Debes ingresar un email correcto')
+                    .required('El email es obligatorio'),
+        
+        telefono: Yup.number()
+                    .positive('Numero no valido')
+                    .integer('Numero no valido')
+                    .typeError('Debes ingresar un telefono correcto'),
+
+    })
 
     const handleSubmit = (values) => {
         console.log(values)
@@ -23,8 +46,11 @@ const Formulario = () => {
                 onSubmit = { (values) => {
                     handleSubmit(values)
                 }}
+                validationSchema={nuevoClienteSchema}
             >
-                {() => (
+                {({errors, touched}) => {
+
+                    return (
                 <Form
                     className='mt-10'
                 >
@@ -40,6 +66,13 @@ const Formulario = () => {
                             placeholder="Nombre del Cliente"
                             name="nombre"
                         />
+
+                        {errors.nombre && touched.nombre ? (
+                            <Alerta>
+                                {errors.nombre}
+                            </Alerta>
+                        ) : null}
+
                     </div>
                     <div className='mb-4'>
                         <label
@@ -53,6 +86,12 @@ const Formulario = () => {
                             placeholder="Empresa del Cliente"
                             name="empresa"
                         />
+
+                            {errors.empresa && touched.empresa ? (
+                                <Alerta>
+                                    {errors.empresa}
+                                </Alerta>
+                            ) : null}
                     </div>
                     <div className='mb-4'>
                         <label
@@ -66,6 +105,11 @@ const Formulario = () => {
                             placeholder="Email del Cliente"
                             name="email"
                         />
+                            {errors.email && touched.email ? (
+                                <Alerta>
+                                    {errors.email}
+                                </Alerta>
+                            ) : null}
                     </div>
                     <div className='mb-4'>
                         <label
@@ -79,6 +123,11 @@ const Formulario = () => {
                             placeholder="Teléfono del Cliente"
                             name="telefono"
                         />
+                            {errors.telefono && touched.telefono ? (
+                                <Alerta>
+                                    {errors.telefono}
+                                </Alerta>
+                            ) : null}
                     </div>
                     <div className='mb-4'>
                         <label
@@ -101,7 +150,7 @@ const Formulario = () => {
                         className='mt-5 w-full bg-blue-800 p-3 text-white font-bold text-lg'
                     />
                 </Form>
-                )}
+                )}}
             </Formik>
             
         </div>
