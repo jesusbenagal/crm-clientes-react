@@ -1,0 +1,28 @@
+{
+  "clientes": [
+    {
+      "nombre": "Jesús",
+      "empresa": "Talan",
+      "email": "jesus@jesus.com",
+      "telefono": "629663353",
+      "notas": "Hola que tal",
+      "id": 1
+    },
+    {
+      "nombre": "Maria",
+      "empresa": "Talan",
+      "email": "jesus@jesus.com",
+      "telefono": "629663353",
+      "notas": "Hola que tal",
+      "id": 2
+    },
+    {
+      "nombre": "Shin",
+      "empresa": "o´shico",
+      "email": "shin@shin.com",
+      "telefono": "952061470",
+      "notas": "Shin o´shico",
+      "id": 3
+    }
+  ]
+}
