@@ -23,14 +23,6 @@
       "telefono": "952061470",
       "notas": "Shin o'shico",
       "id": 3
-    },
-    {
-      "nombre": "Paco NUEVO",
-      "empresa": "Paco123",
-      "email": "paco@paco.com",
-      "telefono": "456789345",
-      "notas": "Probando nuevo cliente",
-      "id": 4
     }
   ]
 }

@@ -57,8 +57,6 @@ const Formulario = ({cliente, cargando}) => {
         } catch (e) {
             console.error(e);
         }
-
-
     }
 
     return (
